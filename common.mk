@@ -73,6 +73,7 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.audio.soundtrigger.xatx.gmm.level=54 \
     ro.vendor.audio.soundtrigger.xatx.gmm.user.level=54 \
     ro.vendor.audio.soundtrigger.xatx.vop.level=0 \
+    ro.vendor.audio.stereo_master_volume=1 \
     ro.vendor.audio.support.sound.id=true
 
 # Bluetooth
