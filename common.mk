@@ -145,7 +145,11 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.display.nature_mode.enable=true \
     ro.vendor.histogram.enable=true \
     ro.vendor.sre.enable=true \
-    ro.vendor.xiaomi.bl.poll=true
+    ro.vendor.xiaomi.bl.poll=true \
+    debug.inputdispatcher.use_early_input_pipeline=true \
+    ro.surface_flinger.set_idle_timer_ms=130 \
+    ro.surface_flinger.use_frame_rate_api=true \
+    ro.sf.latch_unsignaled=1    
 
 # Doze
 PRODUCT_PACKAGES += \
