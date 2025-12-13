@@ -16,6 +16,7 @@ import co.aospa.xiaomiparts.display.DcDimmingService
 import co.aospa.xiaomiparts.doze.PocketService
 import co.aospa.xiaomiparts.gestures.GestureUtils
 import co.aospa.xiaomiparts.thermal.ThermalUtils
+import co.aospa.xiaomiparts.refreshrate.RefreshUtils
 import co.aospa.xiaomiparts.touch.HighTouchPollingService
 import co.aospa.xiaomiparts.touch.TouchOrientationService
 
@@ -34,6 +35,7 @@ class BootCompletedReceiver : BroadcastReceiver() {
         TouchOrientationService.startService(context)
         HighTouchPollingService.startService(context)
         ThermalUtils.getInstance(context).startService()
+        RefreshUtils.startService(context)       
         GestureUtils.onBootCompleted(context)
     }
 
