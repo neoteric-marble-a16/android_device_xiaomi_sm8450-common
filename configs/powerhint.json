@@ -504,7 +504,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 200,
-      "Value": "1996800"
+      "Value": "2361600"
     },
     {
       "PowerHint": "INTERACTION",
@@ -516,12 +516,12 @@
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 200,
-      "Value": "1056000"
+      "Value": "1228800"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
-      "Duration": 3000,
+      "Duration": 9000,
       "Value": "50"
     },
     {
@@ -533,7 +533,7 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTALatency",
-      "Duration": 3000,
+      "Duration": 9000,
       "Value": "1"
     },
     {
@@ -588,7 +588,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 200,
-      "Value": "547000"
+      "Value": "1555000"
     },
     {
       "PowerHint": "INTERACTION",
@@ -618,7 +618,7 @@
       "PowerHint": "INTERACTION",
       "Node": "L3MinFreq",
       "Duration": 200,
-      "Value": "998400"
+      "Value": "1267200"
     },
     {
       "PowerHint": "INTERACTIVE",
@@ -671,19 +671,19 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigPlusClusterMinFreq",
-      "Duration": 500,
+      "Duration": 750,
       "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 500,
+      "Duration": 750,
       "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 500,
+      "Duration": 750,
       "Value": "9999999"
     },
     {
