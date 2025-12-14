@@ -328,7 +328,6 @@
       "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
       "Values": [
         "10000",
-        "500",
         "80"
       ],
       "ResetOnInit": true
@@ -505,24 +504,24 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBigPlusClusterMinFreq",
       "Duration": 200,
-      "Value": "1766400"
+      "Value": "1996800"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 200,
-      "Value": "1324800"
+      "Value": "1440000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 200,
-      "Value": "940800"
+      "Value": "1056000"
     },
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTAMin",
-      "Duration": 9000,
+      "Duration": 3000,
       "Value": "50"
     },
     {
@@ -534,7 +533,7 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "UclampTALatency",
-      "Duration": 9000,
+      "Duration": 3000,
       "Value": "1"
     },
     {
@@ -589,7 +588,7 @@
       "PowerHint": "INTERACTION",
       "Node": "CPUBWMinFreq",
       "Duration": 200,
-      "Value": "1555000"
+      "Value": "547000"
     },
     {
       "PowerHint": "INTERACTION",
@@ -619,7 +618,7 @@
       "PowerHint": "INTERACTION",
       "Node": "L3MinFreq",
       "Duration": 200,
-      "Value": "1267200"
+      "Value": "998400"
     },
     {
       "PowerHint": "INTERACTIVE",
@@ -672,20 +671,20 @@
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigPlusClusterMinFreq",
-      "Duration": 750,
-      "Value": "2246400"
+      "Duration": 500,
+      "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPUBigClusterMinFreq",
-      "Duration": 750,
-      "Value": "1881600"
+      "Duration": 500,
+      "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "CPULittleClusterMinFreq",
-      "Duration": 750,
-      "Value": "1555200"
+      "Duration": 500,
+      "Value": "9999999"
     },
     {
       "PowerHint": "LAUNCH",
@@ -769,7 +768,7 @@
       "PowerHint": "LAUNCH",
       "Node": "GPUIdleTimer",
       "Duration": 1500,
-      "Value": "500"
+      "Value": "10000"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
@@ -829,19 +828,19 @@
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "CPUBWMinFreq",
       "Duration": 80,
-      "Value": "1555000"
+      "Value": "3196000"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "L3MinFreq",
       "Duration": 80,
-      "Value": "1267200"
+      "Value": "1593600"
     },
     {
       "PowerHint": "DISPLAY_UPDATE_IMMINENT",
       "Node": "CPULittleClusterMinFreq",
       "Duration": 80,
-      "Value": "1056000"
+      "Value": "1228800"
     },
     {
       "PowerHint": "Flipendo",
