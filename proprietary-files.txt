@@ -1,4 +1,4 @@
-# Device proprietary files - from marble OS2.0.4.0.VMRMIXM package, unless pinned
+# All unpinned blobs below are extracted from marble OS2.0.211.0.VMRMIXM
 
 # ADSP
 vendor/bin/adsprpcd
