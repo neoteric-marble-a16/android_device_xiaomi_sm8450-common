@@ -59,12 +59,15 @@ if [ -z "${SRC}" ]; then
 fi
 
 function blob_fixup() {
-    # Patch all binaries for libstagefright_foundation
+    # Patch all binaries for libstagefright_foundation AND libaudioroute
     shopt -s globstar
     case "${1}" in
         vendor/bin/** | vendor/**/*.so)
             readelf -d "$2" 2>/dev/null | grep -q 'libstagefright_foundation.so' && \
                 "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+
+            readelf -d "$2" 2>/dev/null | grep -q 'libaudioroute.so' && \
+                "${PATCHELF}" --replace-needed "libaudioroute.so" "libaudioroute-v34.so" "${2}"
             ;;
     esac
 
@@ -101,9 +104,6 @@ function blob_fixup() {
         vendor/lib64/hw/com.qti.chi.override.so | vendor/lib64/libcamxcommonutils.so | vendor/lib64/libmialgoengine.so)
             "${PATCHELF}" --add-needed "libprocessgroup_shim.so" "$2"
             ;;
-        vendor/lib64/libagm.so | vendor/lib64/libar-pal.so | vendor/lib64/libaudioroute_ext.so | vendor/lib64/libfmpal.so | vendor/lib64/libkaraokepal.so | vendor/lib64/libmcs.so | vendor/lib64/libmmhardware.so)
-            "${PATCHELF}" --replace-needed "libaudioroute.so" "libaudioroute-v34.so" "${2}"
-            ;;                        
     esac
 }
 
