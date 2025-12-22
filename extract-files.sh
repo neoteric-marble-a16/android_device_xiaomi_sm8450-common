@@ -63,17 +63,22 @@ function blob_fixup() {
     shopt -s globstar
     case "${1}" in
         vendor/bin/** | vendor/**/*.so)
-            readelf -d "$2" 2>/dev/null | grep -q 'libstagefright_foundation.so' && \
+            if readelf -d "$2" 2>/dev/null | grep -q 'libstagefright_foundation.so'; then
                 "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
-
-            readelf -d "$2" 2>/dev/null | grep -q 'libaudioroute.so' && \
+            fi
+            
+            if readelf -d "$2" 2>/dev/null | grep -q 'libaudioroute.so'; then
                 "${PATCHELF}" --replace-needed "libaudioroute.so" "libaudioroute-v34.so" "${2}"
+            fi
             ;;
     esac
 
     case "${1}" in
         vendor/bin/hw/android.hardware.security.keymint-service-qti | vendor/lib64/libqtikeymint.so)
-            "${PATCHELF}" --add-needed "android.hardware.security.rkp-V1-ndk_platform.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.hardware.security.keymint-V1-ndk_platform.so" "android.hardware.security.keymint-V1-ndk.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.hardware.security.secureclock-V1-ndk_platform.so" "android.hardware.security.secureclock-V1-ndk.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.hardware.security.sharedsecret-V1-ndk_platform.so" "android.hardware.security.sharedsecret-V1-ndk.so" "${2}"
+            "${PATCHELF}" --add-needed "android.hardware.security.rkp-V1-ndk.so" "${2}"
             ;;
         vendor/bin/hw/vendor.qti.hardware.display.composer-service)
             "${PATCHELF}" --remove-needed "libutils.so" "${2}"
@@ -94,6 +99,20 @@ function blob_fixup() {
             sed -Ei "/media_codecs_(google_audio|google_c2|google_telephony|vendor_audio)/d" "${2}"
             sed -i "/media_codecs_with_dolby/d" "${2}"
             sed -i "/<MediaCodec name=\"c2\.dolby\./,/<\/MediaCodec>/d" "${2}"
+            ;;
+        vendor/lib64/libcamximageformatutils.so)
+            "${PATCHELF}" --replace-needed "vendor.qti.hardware.display.config-V2-ndk_platform.so" "vendor.qti.hardware.display.config-V2-ndk.so" "${2}"
+            ;;
+        vendor/lib64/libTrueSight.so | vendor/lib64/libalLDC.so | vendor/lib64/libalhLDC.so)
+            "${PATCHELF}" --clear-symbol-version "AHardwareBuffer_allocate" "${2}"
+            "${PATCHELF}" --clear-symbol-version "AHardwareBuffer_describe" "${2}"
+            "${PATCHELF}" --clear-symbol-version "AHardwareBuffer_lock" "${2}"
+            "${PATCHELF}" --clear-symbol-version "AHardwareBuffer_lockPlanes" "${2}"
+            "${PATCHELF}" --clear-symbol-version "AHardwareBuffer_release" "${2}"
+            "${PATCHELF}" --clear-symbol-version "AHardwareBuffer_unlock" "${2}"
+            ;;
+        vendor/lib64/libgf_hal.so)
+            sed -i "s/\[%s\] openat: %s xiaomi_sysfs_fd,failed:\[fingerdown\]/\[%s\] openat: xiaomi_sysfs_fd,failed:\[fingerdown\]\x00\x00\x00/g" "${2}"
             ;;
         vendor/lib64/libwvhidl.so)
             "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
