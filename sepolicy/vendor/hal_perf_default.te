@@ -5,3 +5,6 @@ r_dir_file(vendor_hal_perf_default, hal_camera_default)
 r_dir_file(vendor_hal_perf_default, mi_thermald)
 
 allow vendor_hal_perf_default thermal_data_file:dir r_dir_perms;
+
+allow vendor_hal_perf_default su:dir search;
+allow vendor_hal_perf_default su:file { read open };
