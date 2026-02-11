@@ -325,6 +325,16 @@ PRODUCT_COPY_FILES += \
 # Platform
 TARGET_BOARD_PLATFORM := taro
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti
+
+PRODUCT_PACKAGES += \
+    android.hardware.power-V4-ndk.vendor
+
+PRODUCT_COPY_FILES += \
+    vendor/qcom/opensource/power/config/taro/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+
 # Preinstalled packages
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/preinstalled-packages-xiaomi.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-xiaomi.xml
